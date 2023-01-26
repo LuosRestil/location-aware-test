@@ -1,5 +1,5 @@
 function main() {
-  window.addEventListener('mousemove', event => {
+  window.addEventListener('deviceorientation', event => {
     handleOrientationChange(event);
     // 
   })
