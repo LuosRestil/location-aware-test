@@ -1,9 +1,10 @@
 function main() {
-  window.addEventListener('deviceorientation', e => {
-    handleOrientationChange(e);
+  window.addEventListener('mousemove', event => {
+    handleOrientationChange(event);
+    // 
   })
 }
 
 function handleOrientationChange(event) {
-  document.getElementById('display').textContent = event;
+  document.getElementById('display').textContent = `${event.alpha}, ${event.beta}, ${event.gamma}`;
 }
