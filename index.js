@@ -1,5 +1,5 @@
 function main() {
-  window.addEventListener('onDeviceOrientationChange', e => {
+  window.addEventListener('deviceorientation', e => {
     handleOrientationChange(e);
   })
 }
