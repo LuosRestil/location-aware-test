@@ -1,4 +1,8 @@
 function main() {
+  document.getElementById('start-button').addEventListener('click', () => {
+    DeviceOrientationEvent.requestPermission();
+  })
+
   window.addEventListener('deviceorientation', event => {
     handleOrientationChange(event);
   });
