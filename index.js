@@ -5,7 +5,7 @@ let gamma;
 
 function main() {
   screen.orientation.lock("landscape");
-  
+
   startButton.addEventListener('click', () => {
     DeviceOrientationEvent.requestPermission();
     startButton.classList.add('hide');
@@ -24,5 +24,5 @@ function handleOrientationChange(event) {
 }
 
 function draw() {
-  canvas.
+  document.querySelector('body').innerHTML = 'locked';
 }
