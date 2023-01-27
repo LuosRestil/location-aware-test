@@ -11,7 +11,6 @@ const centerX = Math.round(canvas.width / 2);
 const centerY = Math.round(canvas.height / 2);
 let circleX = centerX;
 let circleY = centerY;
-let drawCount = 0;
 
 
 startButton.addEventListener('click', () => {
@@ -20,7 +19,7 @@ startButton.addEventListener('click', () => {
   }
   startButton.classList.add('hide');
   canvas.classList.remove('hide');
-  window.requestAnimationFrame(draw)
+  window.requestAnimationFrame(draw);
 });
 
 window.addEventListener('deviceorientation', event => {
@@ -48,7 +47,6 @@ function draw() {
 
   ctx.fillText('gamma: ' + gamma, 10, 20);
   ctx.fillText('beta: ' + beta, 10, 50);
-  ctx.fillText('ct: ' + drawCount, 10, 70);
 
-  drawCount++;
+  window.requestAnimationFrame(draw)
 }
