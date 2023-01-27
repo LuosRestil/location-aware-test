@@ -8,6 +8,7 @@ let gamma;
 startButton.addEventListener('click', () => {
   // DeviceOrientationEvent.requestPermission();
   startButton.classList.add('hide');
+  startButton.textContent = 'should be hidden';
   canvas.classList.remove('hide');
   window.requestAnimationFrame(draw)
 });
