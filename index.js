@@ -3,10 +3,10 @@ const canvas = document.getElementById('canvas');
 let beta;
 let gamma;
 
-screen.orientation.lock("landscape");
+// screen.orientation.lock("landscape");
 
-startButton.addEventListener('touchend', () => {
-  DeviceOrientationEvent.requestPermission();
+startButton.addEventListener('click', () => {
+  // DeviceOrientationEvent.requestPermission();
   startButton.classList.add('hide');
   canvas.classList.remove('hide');
   window.requestAnimationFrame(draw)
