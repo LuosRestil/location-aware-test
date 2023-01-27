@@ -50,14 +50,22 @@ function draw() {
 }
 
 function moveCircle() {
+  // acceleration
   vx += Math.min(gamma * accelRate, maxVelocity);
   vy += Math.min(beta * accelRate, maxVelocity);
+  // friction
+  if (vx < 0) {
+    vx = Math.max(vx + 0.01, 0);
+  } else if (vx > 0) {
+    vx = Math.min(vx - 0.01, 0);
+  }
+  if (vy < 0) {
+    vy = Math.max(vy + 0.01, 0);
+  } else if (vx > 0) {
+    vy = Math.min(vy - 0.01, 0);
+  }
   circleX += vx;
   circleY += vy;
-
-  // circleX = centerX + (gamma * 2);
-  // circleY = centerY + (beta * 4);
-
 
   if (circleX > canvas.width - radius) {
     circleX = canvas.width - radius;
