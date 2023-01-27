@@ -13,14 +13,14 @@ startButton.addEventListener('click', () => {
   window.requestAnimationFrame(draw)
 });
 
-function handleOrientationChange(event) {
-  const beta = Math.round(event.beta);
-  const gamma = Math.round(event.gamma);
-}
-
 window.addEventListener('deviceorientation', event => {
   handleOrientationChange(event);
 });
+
+function handleOrientationChange(event) {
+  beta = Math.round(event.beta);
+  gamma = Math.round(event.gamma);
+}
 
 function draw() {
   context.clearRect(0, 0, canvas.width, canvas.height);
