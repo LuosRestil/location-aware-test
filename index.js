@@ -1,22 +1,18 @@
 function main() {
-  document.getElementById('start-button').addEventListener('click', () => {
+  const startButton = document.getElementById('start-button');
+  startButton.addEventListener('click', () => {
     DeviceOrientationEvent.requestPermission();
-  })
+    startButton.classList.add('hide');
+  });
 
   window.addEventListener('deviceorientation', event => {
     handleOrientationChange(event);
   });
-
-  window.addEventListener('devicemotion', event => {
-    handleMotion(event);
-  })
 }
 
 function handleOrientationChange(event) {
-  document.getElementById('device-moved').textContent = 'device orientation';
-  document.getElementById('display').textContent = `${event.alpha}, ${event.beta}, ${event.gamma}`;
-}
-
-function handleMotion(event) {
-  document.getElementById('device-moved').textContent = 'device motion'
+  const alpha = Math.round(event.alpha);
+  const beta = Math.round(event.beta);
+  const gamma = Math.round(event.gamma);
+  document.getElementById('display').textContent = `${alpha}, ${beta}, ${gamma}`;
 }
