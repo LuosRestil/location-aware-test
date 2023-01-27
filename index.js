@@ -3,7 +3,7 @@ const canvas = document.getElementById('canvas');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 const ctx = canvas.getContext("2d");
-ctx.font = '20px';
+ctx.font = '20px sans-serif';
 let beta;
 let gamma;
 const radius = 20;
@@ -45,5 +45,6 @@ function draw() {
   ctx.strokeStyle = '#FF0000';
   ctx.stroke();
 
-  ctx.fillText(gamma, 10, 50);
+  ctx.fillText('gamma: ' + gamma, 10, 20);
+  ctx.fillText('beta: ' + beta, 10, 50);
 }
