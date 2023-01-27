@@ -3,20 +3,18 @@ const canvas = document.getElementById('canvas');
 let beta;
 let gamma;
 
-function main() {
-  screen.orientation.lock("landscape");
+screen.orientation.lock("landscape");
 
-  startButton.addEventListener('click', () => {
-    DeviceOrientationEvent.requestPermission();
-    startButton.classList.add('hide');
-    canvas.classList.remove('hide');
-    window.requestAnimationFrame(draw)
-  });
+startButton.addEventListener('click', () => {
+  DeviceOrientationEvent.requestPermission();
+  startButton.classList.add('hide');
+  canvas.classList.remove('hide');
+  window.requestAnimationFrame(draw)
+});
 
-  window.addEventListener('deviceorientation', event => {
-    handleOrientationChange(event);
-  });
-}
+window.addEventListener('deviceorientation', event => {
+  handleOrientationChange(event);
+});
 
 function handleOrientationChange(event) {
   const beta = Math.round(event.beta);
