@@ -1,5 +1,9 @@
 const startButton = document.getElementById('start-button');
 const canvas = document.getElementById('canvas');
+const video = document.getElementById('video');
+video.setAttribute('autoplay', '');
+video.setAttribute('muted', '');
+video.setAttribute('playsinline', '')
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 const ctx = canvas.getContext("2d");
@@ -15,9 +19,6 @@ let vx = 0;
 let vy = 0;
 const accelRate = 0.01;
 maxVelocity = 2;
-// let ax = 0;
-// let ay = 0;
-
 
 startButton.addEventListener('click', () => {
   if (DeviceOrientationEvent.requestPermission) {
@@ -32,6 +33,19 @@ window.addEventListener('deviceorientation', event => {
   handleOrientationChange(event);
 });
 
+navigator.mediaDevices.getUserMedia({video: {facingMode: 'environment'}})
+  .then(localMediaStream => {
+    if ('srcObject' in video) {
+      video.srcObject = localMediaStream;
+    } else {
+      video.src = URL.createObjectURL(localMediaStream);
+    }
+    video.play()
+  })
+  .catch(err => {
+    alert(err);
+  })
+
 function handleOrientationChange(event) {
   beta = event.beta;
   gamma = event.gamma;
@@ -39,7 +53,7 @@ function handleOrientationChange(event) {
 
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
-
+  drawVideo()
   moveCircle()
   drawCircle()
 
@@ -47,6 +61,10 @@ function draw() {
   ctx.fillText('beta: ' + Math.round(beta), 10, 50);
 
   window.requestAnimationFrame(draw)
+}
+
+function drawVideo() {
+  ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
 }
 
 function moveCircle() {
