@@ -24,7 +24,6 @@ startButton.addEventListener('click', () => {
 });
 
 window.addEventListener('deviceorientation', event => {
-  orientationEventCount++;
   handleOrientationChange(event);
 });
 
