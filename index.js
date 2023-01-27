@@ -6,8 +6,8 @@ const ctx = canvas.getContext("2d");
 let beta;
 let gamma;
 const radius = 20;
-const centerX = canvas.width / 2;
-const centerY = canvas.height / 2;
+const centerX = Math.round(canvas.width / 2);
+const centerY = Math.round(canvas.height / 2);
 let circleX = centerX;
 let circleY = centerY;
 
@@ -43,4 +43,6 @@ function draw() {
   ctx.lineWidth = 5;
   ctx.strokeStyle = '#FF0000';
   ctx.stroke();
+
+  ctx.fillText("Hello world", 10, 50);
 }
