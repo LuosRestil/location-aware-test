@@ -37,6 +37,18 @@ function draw() {
   circleX = centerX + (gamma * 2);
   circleY = centerY + (beta * 2);
 
+  if (circleX > canvas.width - radius) {
+    circleX = canvas.width - radius;
+  } else if (circleX < radius) {
+    circleX = radius;
+  }
+
+  if (circleY > canvas.height - radius) {
+    circleY = canvas.height - radius;
+  } else if (circleY < radius) {
+    circleY = radius;
+  }
+
   ctx.beginPath();
   ctx.arc(circleX, circleY, radius, 0, 2 * Math.PI, false);
   ctx.fillStyle = 'black';
