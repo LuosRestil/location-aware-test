@@ -49,5 +49,5 @@ function draw() {
 
   ctx.fillText('gamma: ' + gamma, 10, 20);
   ctx.fillText('beta: ' + beta, 10, 50);
-  ctx.fillText('ct: ' + orientationEventCount, 10, 50);
+  ctx.fillText('ct: ' + orientationEventCount, 10, 70);
 }
