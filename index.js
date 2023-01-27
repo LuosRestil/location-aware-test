@@ -1,20 +1,16 @@
 const startButton = document.getElementById('start-button');
 const canvas = document.getElementById('canvas');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+const ctx = canvas.getContext("2d");
 let beta;
 let gamma;
-
-screen.orientation.lock("landscape");
 
 startButton.addEventListener('click', () => {
   DeviceOrientationEvent.requestPermission();
   startButton.classList.add('hide');
-  startButton.textContent = 'should be hidden';
   canvas.classList.remove('hide');
   window.requestAnimationFrame(draw)
-});
-
-window.addEventListener('deviceorientation', event => {
-  handleOrientationChange(event);
 });
 
 function handleOrientationChange(event) {
@@ -22,6 +18,11 @@ function handleOrientationChange(event) {
   const gamma = Math.round(event.gamma);
 }
 
+window.addEventListener('deviceorientation', event => {
+  handleOrientationChange(event);
+});
+
 function draw() {
-  document.querySelector('body').innerHTML = 'locked';
+  context.clearRect(0, 0, canvas.width, canvas.height);
+  context.fillRect(20, 20, 20, 20);
 }
