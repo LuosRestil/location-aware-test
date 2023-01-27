@@ -34,8 +34,8 @@ function handleOrientationChange(event) {
 function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  circleX = centerX + (beta * 2);
-  circleY = centerY + (gamma * 2);
+  circleX = centerX + (gamma * 2);
+  circleY = centerY + (beta * 2);
 
   ctx.beginPath();
   ctx.arc(circleX, circleY, radius, 0, 2 * Math.PI, false);
