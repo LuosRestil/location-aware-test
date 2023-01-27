@@ -61,14 +61,18 @@ function moveCircle() {
 
   if (circleX > canvas.width - radius) {
     circleX = canvas.width - radius;
+    vx = 0;
   } else if (circleX < radius) {
     circleX = radius;
+    vx = 0;
   }
 
   if (circleY > canvas.height - radius) {
     circleY = canvas.height - radius;
+    vy = 0;
   } else if (circleY < radius) {
     circleY = radius;
+    vy = 0;
   }
 }
 
