@@ -5,9 +5,17 @@ canvas.height = window.innerHeight;
 const ctx = canvas.getContext("2d");
 let beta;
 let gamma;
+const radius = 20;
+const centerX = canvas.width / 2;
+const centerY = canvas.height / 2;
+let circleX = centerX;
+let circleY = centerY;
+
 
 startButton.addEventListener('click', () => {
-  DeviceOrientationEvent.requestPermission();
+  if (DeviceOrientationEvent.requestPermission) {
+    DeviceOrientationEvent.requestPermission();
+  }
   startButton.classList.add('hide');
   canvas.classList.remove('hide');
   window.requestAnimationFrame(draw)
@@ -23,6 +31,16 @@ function handleOrientationChange(event) {
 }
 
 function draw() {
-  context.clearRect(0, 0, canvas.width, canvas.height);
-  context.fillRect(20, 20, 20, 20);
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  circleX = centerX + (beta * 2);
+  circleY = centerY + (gamma * 2);
+
+  ctx.beginPath();
+  ctx.arc(circleX, circleY, radius, 0, 2 * Math.PI, false);
+  ctx.fillStyle = 'black';
+  ctx.fill();
+  ctx.lineWidth = 5;
+  ctx.strokeStyle = '#FF0000';
+  ctx.stroke();
 }
