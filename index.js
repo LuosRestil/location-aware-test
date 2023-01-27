@@ -5,7 +5,7 @@ let gamma;
 
 screen.orientation.lock("landscape");
 
-startButton.addEventListener('click', () => {
+startButton.addEventListener('touchend', () => {
   DeviceOrientationEvent.requestPermission();
   startButton.classList.add('hide');
   canvas.classList.remove('hide');
