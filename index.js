@@ -35,7 +35,7 @@ function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   circleX = centerX + (gamma * 2);
-  circleY = centerY + (beta * 2);
+  circleY = centerY + (beta * 4);
 
   if (circleX > canvas.width - radius) {
     circleX = canvas.width - radius;
