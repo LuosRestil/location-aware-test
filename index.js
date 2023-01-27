@@ -3,10 +3,10 @@ const canvas = document.getElementById('canvas');
 let beta;
 let gamma;
 
-// screen.orientation.lock("landscape");
+screen.orientation.lock("landscape");
 
 startButton.addEventListener('click', () => {
-  // DeviceOrientationEvent.requestPermission();
+  DeviceOrientationEvent.requestPermission();
   startButton.classList.add('hide');
   startButton.textContent = 'should be hidden';
   canvas.classList.remove('hide');
